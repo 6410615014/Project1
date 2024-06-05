@@ -1,0 +1,44 @@
+:root {
+    --c1: #D4F0F0;
+    --c2: #8FCACA;
+    --c3: #dd938c;
+    --c4: #B6CFB6;
+    --c5: #A52241;
+    --c6: #ffffff;
+    --c7: #000000;
+    --font: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: var(--c5);
+}
+
+.box {
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border: 1px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.logout {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: var(--c7);
+    background-color: var(--c6);
+    border: none;
+    border-radius: 15px;
+}
+
+.logout:hover {background-color: var(--c3);}
+
+.logout:active {
+    background-color:  var(--c3);
+    transform: translateY(4px);
+}
+

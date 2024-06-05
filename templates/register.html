@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block body %}
+<form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    <div class="box">
+        <h1>Register</h1>
+    </div>
+    {% if success_message %}
+        <div class="box">
+            <p>{{ success_message }}</p>
+        </div>
+        <div class="box">
+            <a href="{% url 'signin' %}" class="button">Go to Sign in</a>
+        </div>
+    {% else %}
+        <div class="box">
+            <label for="first_name">First name</label>
+            <input type="text" name="first_name" required>
+        </div>
+        <div class="box">
+            <label for="last_name">Last name</label>
+            <input type="text" name="last_name" required>
+        </div>
+        <div class="box">
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+        </div>
+        <div class="box">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <script>
+                const passwordInput = document.getElementById('password');
+                const showPasswordButton = document.getElementById('showPassword');
+
+                showPasswordButton.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    showPasswordButton.textContent = 'Hide';
+                } else {
+                    passwordInput.type = 'password';
+                    showPasswordButton.textContent = 'Show';
+                }
+                });
+            </script>
+        </div>
+        <div class="box">
+            <button type="submit">Submit</button>
+        </div>
+        <div class="box">
+            <a href="/" class="back">Back</a>
+        </div>
+    {% endif %}
+</form>
+{% endblock %}
